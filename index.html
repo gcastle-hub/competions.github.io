@@ -215,7 +215,78 @@
             </div>
           </div>
         </div>
-
+ 
+       <div class="section-header data_p">
+          <br>
+          <p><b>Dataset information given to the competition participants </b>If you download the datasets from our competition site, you’ll find that K datasets are stored in separated directories named from 1 to K, and each dataset fully or partially includes the following data files:</p>
+          <p><b>alarm.csv: </b>Historical alarm data</p>
+            <ul>
+              <li class="rules-p"><b>Format: </b>[alarm_id, device_id, start_timestamp, end_timestamp]</li>
+              <li class="rules-p"><b>Description:</b> In the alarm data file we provide historic alarm information. Each row denotes an alarm record which contains the alarm ID (i.e., the alarm type), the device where the alarm occurred, the start timestamp, and the end timestamp. For privacy, every alarm id is encoded to an integer number starting from 0 to N-1, where N is the number of the alarm types. Each device ID is likewise encoded to an integer number starting from 0 to M-1, where M is the number of the devices.</li>
+              <li class="rules-p"><b> Example:</b>
+                <table  cellpadding="0";cellspacing="0">
+                    <tr>
+                        <th>alarm_id</th>
+                        <th>device_id</th>
+                        <th>start_timestamp</th>
+                        <th>end_timestamp</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>13</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>28</td>
+                        <td>32</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>30684</td>
+                        <td>30684</td>
+                        <td>30795</td>
+                        <td>32215</td>
+                    </tr>
+                    <tr>
+                        <td>32416</td>
+                        <td>30867</td>
+                        <td>32668</td>
+                        <td>32867</td>
+                    </tr>
+                </table>
+              </li>
+            </ul>
+          <p><b>topology.npy (Optional): </b>The connections between devices .</p>
+            <ul>
+              <li class="rules-p"><b>Format: </b>an M ×M NumPy array, with M being the number of the devices in the network.</li>
+              <li class="rules-p"><b>Description: </b>This NumPy file stores the binary symmetric adjacency matrix for the network topology which is an undirected graph. For example, the element which is in the i-th row and j-th column of the matrix equals 1 (0) means the existence (resp. non-existence) of an undirected link between the device i and the device j.</li>
+              <li class="rules-p"><b>Example :</b> M=4
+                    <p>\(\begin{bmatrix}
+                          0 & 1 & 1 & 0 \\
+                          1 & 0 & 0 & 1 \\
+                          1 & 0 & 0 & 0 \\
+                          0 & 1 & 0 & 0
+                      \end{bmatrix}\)
+                    </p>
+              </li>
+            </ul>
+          <p><b>causal_prior.npy (Optional):</b> Prior knowledge indicating definite causal relation information.</p>
+            <ul>
+              <li class="rules-p"><b>Format:</b> An N × N NumPy array, where N is the number of the alarm types.</li>
+              <li class="rules-p"><b>Description:</b> Similar to the topology, causal_prior.npy stores an adjacency matrix for partially representing the true causal alarm graph. The prior information is labeled manually by experts or, for the synthetic datasets, the pre-set causal assumptions. The element in the i-th row and j-th column of the matrix equals 1 (0/-1), which means the existence (resp. non-existence or Uncertain) of a directed edge from the alarm type i to alarm type j.</li>
+              <li class="rules-p">Example: N = 3, see Figure 2</li>
+            </ul>
+          <p><b>rca_prior.npy (Optional):</b> Prior knowledge including some simplified fault snapshots and the corresponding RCA results.</p>
+            <ul>
+              <li class="rules-p"><b>Format:</b> [simpified_snapshot, simplified_root_cause]</li>
+              <li class="rules-p"><b>Description:</b> In the real-world RCA scenario, a fault snapshot contains detailed information on the network state (a series of alarms with occurrence time and occurrence location information) within the period a fault occurs, while simplified fault snapshots extract or compress the corresponding network state to an alarm type list ignoring the occurrence time/location and sequential information, and the corresponding RCA result is as well. Due to considering knowledge reusability, the simplified snapshots along with simplified RCA results (also can be regarded as RCA rules) are a common way to store considerable raw RCA cases in the AIOps field.<p>Figure 2: Causal Prior </p></li>
+              <li class="rules-p"><b>Example:</b> see Figure 3  <p>Figure 3: RCA Prior</p></li>
+            </ul>
+              <p>It’s essential to note that each dataset is causally independent of others, hence it’s not suitable to do any information exchange among these datasets when executing causal discovery tasks.</p>
+        </div>
+        
       </div>
     </section><!-- End Dataset Section -->
 
@@ -444,7 +515,8 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
