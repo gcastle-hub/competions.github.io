@@ -48,6 +48,13 @@ table{
     border-collapse: collapse;
 }
 
+.rules-p {
+  text-indent: 0.1em;
+  margin-left: 25px;
+  padding-bottom: 0;
+
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -744,6 +751,11 @@ section {
     margin-left: 0;
     text-align: center;
   }
+}
+
+#services .data_p p {
+  padding: 10px;
+  text-indent:0;
 }
 
 /* Clients Section
