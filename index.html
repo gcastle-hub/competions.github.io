@@ -106,7 +106,7 @@
           </div>
           <div class="col-lg-12 about-img">
             <img src="assets/img/about-img.jpg" alt="">
-            <h3 class="text-center" style="color: #0c2e8a">Figure 1</h3>
+            <h5 class="text-center" style="color: #0c2e8a">Figure 1</h5>
           </div>
         </div>
 
@@ -275,13 +275,25 @@
             <ul>
               <li class="rules-p"><b>Format:</b> An N × N NumPy array, where N is the number of the alarm types.</li>
               <li class="rules-p"><b>Description:</b> Similar to the topology, causal_prior.npy stores an adjacency matrix for partially representing the true causal alarm graph. The prior information is labeled manually by experts or, for the synthetic datasets, the pre-set causal assumptions. The element in the i-th row and j-th column of the matrix equals 1 (0/-1), which means the existence (resp. non-existence or Uncertain) of a directed edge from the alarm type i to alarm type j.</li>
-              <li class="rules-p">Example: N = 3, see Figure 2</li>
+              <li class="rules-p">Example: N = 3, see Figure 2
+                <br>
+                <div class="text-center">
+                  <img src="assets/img/causal_prior.png" alt="">
+                  <h5  style="color: #0c2e8a">Figure 2: Causal Prior </h5>
+                </div>
+              </li>
             </ul>
           <p><b>rca_prior.npy (Optional):</b> Prior knowledge including some simplified fault snapshots and the corresponding RCA results.</p>
             <ul>
               <li class="rules-p"><b>Format:</b> [simpified_snapshot, simplified_root_cause]</li>
-              <li class="rules-p"><b>Description:</b> In the real-world RCA scenario, a fault snapshot contains detailed information on the network state (a series of alarms with occurrence time and occurrence location information) within the period a fault occurs, while simplified fault snapshots extract or compress the corresponding network state to an alarm type list ignoring the occurrence time/location and sequential information, and the corresponding RCA result is as well. Due to considering knowledge reusability, the simplified snapshots along with simplified RCA results (also can be regarded as RCA rules) are a common way to store considerable raw RCA cases in the AIOps field.<p>Figure 2: Causal Prior </p></li>
-              <li class="rules-p"><b>Example:</b> see Figure 3  <p>Figure 3: RCA Prior</p></li>
+              <li class="rules-p"><b>Description:</b> In the real-world RCA scenario, a fault snapshot contains detailed information on the network state (a series of alarms with occurrence time and occurrence location information) within the period a fault occurs, while simplified fault snapshots extract or compress the corresponding network state to an alarm type list ignoring the occurrence time/location and sequential information, and the corresponding RCA result is as well. Due to considering knowledge reusability, the simplified snapshots along with simplified RCA results (also can be regarded as RCA rules) are a common way to store considerable raw RCA cases in the AIOps field.</li>
+              <li class="rules-p"><b>Example:</b> see Figure 3
+                <br>
+                <div class="text-center">
+                  <img src="assets/img/rca_prior.png" alt="">
+                  <h5 class="text-center" style="color: #0c2e8a">Figure 3: RCA Prior</h5>
+                </div>
+              </li>
             </ul>
               <p>It’s essential to note that each dataset is causally independent of others, hence it’s not suitable to do any information exchange among these datasets when executing causal discovery tasks.</p>
         </div>
