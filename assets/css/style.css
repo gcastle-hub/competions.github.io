@@ -746,6 +746,11 @@ section {
   }
 }
 
+#services .data_p p {
+  padding: 10px;
+  text-indent:0;
+}
+
 /* Clients Section
 --------------------------------*/
 #clients {
