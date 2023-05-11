@@ -212,9 +212,9 @@
         layoutMode: 'fitRows'
       });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+      let portfolioFilters = select('#overview-filters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#overview-filters li', function(e) {
         e.preventDefault();
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
