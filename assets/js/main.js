@@ -273,7 +273,12 @@
       type: 'bullets',
       clickable: true
     },
-
+    breakpoints: {
+      500: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+    }
   });
 
   /**
