@@ -48,6 +48,14 @@ table{
     border-collapse: collapse;
 }
 
+pre {
+  font-size: 17px;
+}
+
+math {
+  font-size: 27px;
+}
+
 .rules-p {
   text-indent: 0.1em;
   margin-left: 25px;
