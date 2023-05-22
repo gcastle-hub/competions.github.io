@@ -1046,6 +1046,12 @@ section {
   background-color: #50d8af;
 }
 
+#committee .img-content {
+    margin: 20px 0 20px 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Call To Action Section
 --------------------------------*/
